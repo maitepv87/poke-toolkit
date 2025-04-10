@@ -1,4 +1,4 @@
-# 🧩 Pokemon Redux Exercise
+# 🧩 Pokemon Redux Demo
 
 This is a small practice project built with **React** and **Redux Toolkit** to fetch data from the [PokeAPI](https://pokeapi.co/).  
 The goal is to practice state management, asynchronous actions, and basic pagination while keeping the code clean and maintainable.
