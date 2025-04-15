@@ -17,7 +17,7 @@ export const PokemonApp = () => {
 
   return (
     <div className="app-container">
-      <h1>Pokemon App</h1>
+      <h1>My Pokemon</h1>
       <hr />
 
       {error && <div className="error-message">{error}</div>}
@@ -29,6 +29,11 @@ export const PokemonApp = () => {
       <div className="pokemon-list">
         {pokemons.map((pokemon) => (
           <div key={pokemon.name} className="pokemon-card">
+            <img
+              src={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
+              alt={pokemon.name}
+              className="pokemon-image"
+            />
             <div className="pokemon-name">{pokemon.name}</div>
           </div>
         ))}
