@@ -17,7 +17,7 @@ export const PokemonApp = () => {
 
   return (
     <div className="app-container">
-      <h1>My Pokemon</h1>
+      <h1>Pokemon App</h1>
       <hr />
 
       {error && <div className="error-message">{error}</div>}
