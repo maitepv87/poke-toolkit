@@ -1,11 +1,11 @@
-# 🧩 Pokemon Redux Demo
+# Redux Toolkit Demo
 
 This is a small practice project built with **React** and **Redux Toolkit** to fetch data from the [PokeAPI](https://pokeapi.co/).  
 The goal is to practice state management, asynchronous actions, and basic pagination while keeping the code clean and maintainable.
 
 ---
 
-## 🚀 Features
+## Features
 
 - Fetches Pokémon data from the PokeAPI
 - Pagination support (next page button)
@@ -16,7 +16,7 @@ The goal is to practice state management, asynchronous actions, and basic pagina
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - React
 - Redux Toolkit
