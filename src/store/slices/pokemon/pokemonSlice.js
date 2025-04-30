@@ -7,6 +7,7 @@ const initialState = {
   error: null,
 };
 
+// Redux slice for managing Pokémon state
 export const pokemonSlice = createSlice({
   name: "pokemon",
   initialState,
@@ -25,10 +26,17 @@ export const pokemonSlice = createSlice({
       state.page = action.payload.page;
       state.pokemons = action.payload.pokemons;
     },
+    resetState: (state) => {
+      state.pokemons = [];
+      state.page = 0;
+      state.isLoading = false;
+      state.error = null;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { loading, setError, setPokemons } = pokemonSlice.actions;
+export const { loading, setError, setPokemons, resetState } =
+  pokemonSlice.actions;
 
 export default pokemonSlice.reducer;

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemons } from "./store/slices/pokemon";
+import { getPokemons, resetState } from "./store/slices/pokemon";
 
 export const PokemonApp = () => {
   const {
@@ -13,6 +13,11 @@ export const PokemonApp = () => {
 
   useEffect(() => {
     dispatch(getPokemons());
+
+    return () => {
+      // Cleanup code runs on unmount
+      dispatch(resetState());
+    };
   }, [dispatch]);
 
   return (
