@@ -21,7 +21,7 @@ a:hover {
 }
 
 body {
-  padding: 50px;
+  padding: 20px;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -48,46 +48,12 @@ h1 {
   color: #333;
 }
 
-.loading-status {
-  font-size: 1.1em;
-  margin-bottom: 20px;
-  color: #666;
-}
-
 .pokemon-list {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   margin-top: 5px;
-}
-
-.pokemon-card {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 15px;
-  width: 150px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.pokemon-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.pokemon-image {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 10px;
-}
-
-.pokemon-name {
-  font-weight: 600;
-  text-transform: capitalize;
-  font-size: 1.2em;
-  color: #333; 
 }
 
 button {

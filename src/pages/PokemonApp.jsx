@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemons, resetState } from "./store/slices/pokemon";
+import { getPokemons, resetState } from "../store/slices/pokemon";
+import { LoadingSpinner, ErrorMessage, PokemonCard } from "../components";
 
 export const PokemonApp = () => {
   const {
@@ -25,22 +26,20 @@ export const PokemonApp = () => {
       <h1>Pokemon App</h1>
       <hr />
 
-      {error && <div className="error-message">{error}</div>}
+      <ErrorMessage message={error} />
 
-      <span className="loading-status">
-        {isLoading ? "Loading..." : "Ready to go!"}
-      </span>
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <span className="loading-status">Ready to go!</span>
+      )}
 
       <div className="pokemon-list">
         {pokemons.map((pokemon) => (
-          <div key={pokemon.name} className="pokemon-card">
-            <img
-              src={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
-              alt={pokemon.name}
-              className="pokemon-image"
-            />
-            <div className="pokemon-name">{pokemon.name}</div>
-          </div>
+          <PokemonCard
+            pokemon={pokemon}
+            image={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
+          />
         ))}
       </div>
 
