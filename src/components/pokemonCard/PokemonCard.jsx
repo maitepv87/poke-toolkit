@@ -1,18 +1,26 @@
 import PropTypes from "prop-types";
 import "./PokemonCard.css";
 
-export const PokemonCard = ({ pokemon, image }) => {
+export const PokemonCard = ({ pokemonData, pokemonImage }) => {
   return (
-    <div className="pokemon-card">
-      <img src={image} alt={pokemon.name} className="pokemon-image" />
-      <div className="pokemon-name">{pokemon.name}</div>
+    <div
+      className="pokemon-card"
+      role="article"
+      aria-label={`Card for ${pokemonData.name}`}
+    >
+      <img
+        src={pokemonImage}
+        alt={pokemonData.name}
+        className="pokemon-image"
+      />
+      <div className="pokemon-name">{pokemonData.name}</div>
     </div>
   );
 };
 
 PokemonCard.propTypes = {
-  pokemon: PropTypes.shape({
+  pokemonData: PropTypes.shape({
     name: PropTypes.string.isRequired,
   }).isRequired,
-  image: PropTypes.string.isRequired,
+  pokemonImage: PropTypes.string.isRequired,
 };

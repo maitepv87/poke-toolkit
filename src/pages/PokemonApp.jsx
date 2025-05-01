@@ -37,18 +37,20 @@ export const PokemonApp = () => {
       <div className="pokemon-list">
         {pokemons.map((pokemon) => (
           <PokemonCard
-            pokemon={pokemon}
-            image={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
+            pokemonData={pokemon}
+            pokemonImage={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
           />
         ))}
       </div>
 
       <button
         className="next-button"
+        aria-label="Load next page of Pokémon"
+        aria-disabled={isLoading}
         disabled={isLoading}
         onClick={() => dispatch(getPokemons(page))}
       >
-        Next
+        {isLoading ? "Loading..." : "Next"}
       </button>
     </div>
   );
