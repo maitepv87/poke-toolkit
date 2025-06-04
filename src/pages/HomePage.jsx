@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemons, resetState } from "../store/slices/pokemon";
+import { resetState } from "../store/slices/pokemonSlice";
+import { getPokemons } from "../store/thunks/getPokemons";
 import { LoadingSpinner, ErrorMessage, PokemonCard } from "../components";
 
-export const PokemonApp = () => {
+export const HomePage = () => {
   const {
     isLoading,
     pokemons = [],

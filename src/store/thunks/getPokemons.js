@@ -1,5 +1,5 @@
-import { apiClient } from "../../../api/apiClient";
-import { loading, setPokemons, setError } from "./pokemonSlice";
+import { apiClient } from "../../api/apiClient";
+import { loading, setPokemons, setError } from "../slices/pokemonSlice";
 
 export const getPokemons = (page = 0) => {
   return async (dispatch, getState) => {
