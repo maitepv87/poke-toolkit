@@ -1,26 +1,8 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { resetState } from "../store/slices/pokemonSlice";
-import { getPokemons } from "../store/thunks";
 import { LoadingSpinner, ErrorMessage, PokemonCard } from "../components";
+import { usePokemonData } from "../hooks";
 
 export const HomePage = () => {
-  const {
-    isLoading,
-    pokemons = [],
-    page,
-    error,
-  } = useSelector((state) => state.pokemon);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getPokemons());
-
-    return () => {
-      // Cleanup code runs on unmount
-      dispatch(resetState());
-    };
-  }, [dispatch]);
+  const { isLoading, pokemons, error, loadNext } = usePokemonData();
 
   return (
     <div className="app-container">
@@ -34,6 +16,8 @@ export const HomePage = () => {
       ) : (
         <span className="loading-status">Ready to go!</span>
       )}
+
+      {!isLoading && pokemons.length === 0 && <p>No Pokémon found.</p>}
 
       <div className="pokemon-list">
         {pokemons.map((pokemon) => (
@@ -50,7 +34,8 @@ export const HomePage = () => {
         aria-label="Load next page of Pokémon"
         aria-disabled={isLoading}
         disabled={isLoading}
-        onClick={() => dispatch(getPokemons(page))}
+        // onClick={() => dispatch(getPokemons(page))}
+        onClick={loadNext}
       >
         {isLoading ? "Loading..." : "Next"}
       </button>
