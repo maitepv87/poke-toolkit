@@ -12,7 +12,7 @@ export const pokemonSlice = createSlice({
   name: "pokemon",
   initialState,
   reducers: {
-    loading: (state) => {
+    setLoading: (state) => {
       state.isLoading = true;
       state.error = null;
     },
@@ -20,23 +20,20 @@ export const pokemonSlice = createSlice({
       state.isLoading = false;
       state.error = action.payload;
     },
-    setPokemons: (state, action) => {     
+    setPokemons: (state, action) => {
       state.isLoading = false;
       state.error = null;
       state.page = action.payload.page;
       state.pokemons = action.payload.pokemons;
     },
-    resetState: (state) => {
-      state.pokemons = [];
-      state.page = 0;
-      state.isLoading = false;
-      state.error = null;
+    resetState() {
+      return { ...initialState };
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { loading, setError, setPokemons, resetState } =
+export const { setLoading, setError, setPokemons, resetState } =
   pokemonSlice.actions;
 
 export default pokemonSlice.reducer;
