@@ -1,0 +1,22 @@
+.next-button {
+    padding: 14px 28px;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease, transform 0.2s;
+    margin-top: 30px;
+}
+
+.next-button:hover {
+    background-color: #45a049;
+    transform: scale(1.03);
+}
+
+.next-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

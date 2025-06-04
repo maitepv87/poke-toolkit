@@ -1,4 +1,9 @@
-import { LoadingSpinner, ErrorMessage, PokemonCard } from "../components";
+import {
+  LoadingSpinner,
+  ErrorMessage,
+  PokemonCard,
+  NextButton,
+} from "../components";
 import { usePokemonData } from "../hooks";
 
 export const HomePage = () => {
@@ -29,16 +34,10 @@ export const HomePage = () => {
         ))}
       </div>
 
-      <button
-        className="next-button"
-        aria-label="Load next page of Pokémon"
-        aria-disabled={isLoading}
-        disabled={isLoading}
-        // onClick={() => dispatch(getPokemons(page))}
+      <NextButton
+        isLoading={isLoading}
         onClick={loadNext}
-      >
-        {isLoading ? "Loading..." : "Next"}
-      </button>
+      />
     </div>
   );
 };
