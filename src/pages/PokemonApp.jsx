@@ -37,6 +37,7 @@ export const PokemonApp = () => {
       <div className="pokemon-list">
         {pokemons.map((pokemon) => (
           <PokemonCard
+            key={pokemon.name}
             pokemonData={pokemon}
             pokemonImage={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
           />

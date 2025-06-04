@@ -1,4 +1,4 @@
-import { pokemonApi } from "../../../api/pokemonApi";
+import { apiClient } from "../../../api/apiClient";
 import { loading, setPokemons, setError } from "./pokemonSlice";
 
 export const getPokemons = (page = 0) => {
@@ -6,7 +6,7 @@ export const getPokemons = (page = 0) => {
     dispatch(loading());
 
     try {
-      const response = await pokemonApi.get(
+      const response = await apiClient.get(
         `/pokemon?limit=10&offset=${page * 10}`
       );
 
