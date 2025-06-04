@@ -13,7 +13,6 @@ export const PokemonApp = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    
     dispatch(getPokemons());
 
     return () => {
