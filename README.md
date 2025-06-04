@@ -1,38 +1,42 @@
-# Redux Toolkit Demo  
-*Small-scale React project showcasing state management and API integration with Redux Toolkit.*
+# Poke Toolkit
 
----
+## Description
 
-## About  
-This project is a practical exercise built with **React** and **Redux Toolkit**, designed to solidify concepts of state management, asynchronous actions, and pagination. It uses the [PokeAPI](https://pokeapi.co/) to fetch and display Pokémon data dynamically. The focus is on writing clean, maintainable code that demonstrates scalable architecture principles.
+Pokémon Toolkit is a simple and clean React application that allows users to browse Pokémon data using the PokéAPI. It demonstrates key frontend development practices including Redux Toolkit for state management, Axios for API requests, and component-based architecture with a responsive UI.
 
----
+This project allows users to:
 
-## Features  
+- Load and browse Pokémon in paginated format.
+- See each Pokémon displayed in a card with an image and name.
+- Handle loading and error states with visual feedback.
+- Manage global state cleanly using Redux Toolkit.
+- Use a custom hook to encapsulate data-fetching logic.
 
-### State and Data Management  
-- Global state management with Redux Toolkit  
-- Loading indicator while fetching data  
-- Basic error handling  
+This project is part of my portfolio to demonstrate how to build a user-friendly, maintainable app using modern React tools.
 
-### UI and Functionality  
-- Fetches Pokémon data from the PokeAPI  
-- Pagination support (next page button)  
-- Simple and responsive layout  
+## Technologies Used
 
----
+- **React:** Component-based user interface.
+- **Vite:** Fast build tool and development server.
+- **Redux Toolkit:** Simplified global state management.
+- **React Redux:** Official React bindings for Redux.
+- **Axios:** HTTP client to fetch data from APIs.
+- **PropTypes:** Runtime props validation for components.
+- **CSS Modules:** Component-scoped styling.
 
-## Tech Stack  
-- React  
-- Redux Toolkit  
-- JavaScript (ES6+)  
-- Axios  
-- CSS  
+## Getting Started
 
----
+### Installation & Setup
 
-## Installation and Usage  
+Follow these steps to run the project locally:
 
-1. Clone this repository:  
+1. Clone the repository:
+
    ```bash
-   git clone https://github.com/maitepv87/redux-toolkit-demo.git
+   git clone https://github.com/maitepv87/poke-toolkit.git
+   cd poke-toolkit
+   npm install
+   npm run dev
+   ```
+
+Then open http://localhost:3000 in your browser.
