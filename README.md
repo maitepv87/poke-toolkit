@@ -35,7 +35,23 @@ Follow these steps to run the project locally:
    ```bash
    git clone https://github.com/maitepv87/poke-toolkit.git
    cd poke-toolkit
+   ```
+
+2. Install dependencie:
+
+   ```bash
    npm install
+   ```
+
+3. Set up environment variables in a .env file:
+
+   ```ini
+   VITE_API_URL=https://pokeapi.co/api/v2
+   ```
+
+4. Start the development server:
+
+   ```bash
    npm run dev
    ```
 
