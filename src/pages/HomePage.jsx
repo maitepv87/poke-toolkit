@@ -1,14 +1,17 @@
+import { useState } from "react";
 import {
   LoadingSpinner,
   ErrorMessage,
   PokemonCard,
   NextButton,
 } from "../components";
+
 import { usePokemonData } from "../hooks";
 
 export const HomePage = () => {
   const { loadingPokemons, pokemons, errorMessage, loadNext } =
     usePokemonData();
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
 
   return (
     <div className="app-container">
@@ -31,6 +34,7 @@ export const HomePage = () => {
             key={pokemon.name}
             pokemonData={pokemon}
             pokemonImage={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
+            onClick={(name) => setSelectedPokemon(name)}
           />
         ))}
       </div>
