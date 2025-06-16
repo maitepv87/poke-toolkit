@@ -51,10 +51,15 @@
 
 /* Pokémon image */
 .pokemon-modal-image {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 10px;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    display: block;
+    margin: 15px auto;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
+
 
 /* Pokémon stats and details */
 .pokemon-modal-info {

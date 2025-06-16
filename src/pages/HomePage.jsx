@@ -1,5 +1,8 @@
-import { useState } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { useDispatch } from "react-redux";
+import { getPokemonDetails } from "../store/thunks";
+import { clearPokemonDetails } from "../store/slices";
+import { usePokemonData } from "../hooks";
 import {
   LoadingSpinner,
   ErrorMessage,
@@ -7,9 +10,6 @@ import {
   NextButton,
   PokemonModal,
 } from "../components";
-import { usePokemonData } from "../hooks";
-import { getPokemonDetails } from "../store/thunks";
-import { resetState } from "../store/slices";
 
 export const HomePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,15 +17,31 @@ export const HomePage = () => {
   const { loadingPokemons, pokemons, errorMessage, loadNext } =
     usePokemonData();
 
-  const handlePokemonClick = (name) => {
-    dispatch(getPokemonDetails(name));
-    setIsModalOpen(true);
-  };
+  const handlePokemonClick = useCallback(
+    (name) => {
+      dispatch(getPokemonDetails(name));
+      setIsModalOpen(true);
+    },
+    [dispatch]
+  );
 
-  const handleCloseModal = () => {
+  const handleCloseModal = useCallback(() => {
     setIsModalOpen(false);
-    // dispatch(resetState());
-  };
+    dispatch(clearPokemonDetails());
+  }, [dispatch]);
+
+  const pokemonList = useMemo(
+    () =>
+      pokemons.map((pokemon) => (
+        <PokemonCard
+          key={pokemon.name}
+          pokemonData={pokemon}
+          pokemonImage={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
+          onClick={() => handlePokemonClick(pokemon.name)}
+        />
+      )),
+    [pokemons, handlePokemonClick]
+  );
 
   return (
     <div className="app-container">
@@ -42,16 +58,7 @@ export const HomePage = () => {
 
       {!loadingPokemons && pokemons.length === 0 && <p>No Pokémon found.</p>}
 
-      <div className="pokemon-list">
-        {pokemons.map((pokemon) => (
-          <PokemonCard
-            key={pokemon.name}
-            pokemonData={pokemon}
-            pokemonImage={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
-            onClick={() => handlePokemonClick(pokemon.name)}
-          />
-        ))}
-      </div>
+      <div className="pokemon-list">{pokemonList}</div>
 
       <NextButton isLoading={loadingPokemons} onClick={loadNext} />
 

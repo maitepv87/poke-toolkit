@@ -3,18 +3,26 @@ import { useSelector } from "react-redux";
 import { ErrorMessage, LoadingSpinner } from "../";
 import "./PokemonModal.css";
 
+const modalImageStyle = {
+  width: "100%",
+  maxWidth: "300px",
+  borderRadius: "12px",
+  boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+  marginBottom: "15px",
+};
+
 export const PokemonModal = ({ isOpen, onClose }) => {
-  const { pokemonDetails, loadingPokemonDetails, errorMessage } = useSelector(
-    (state) => state.pokemon
+  const pokemonDetails = useSelector((state) => state.pokemon.pokemonDetails);
+  const loadingPokemonDetails = useSelector(
+    (state) => state.pokemon.loadingPokemonDetails
   );
+  const errorMessage = useSelector((state) => state.pokemon.errorMessage);
 
   if (!isOpen) return null;
 
   return (
     <div className="modal-overlay">
       <div className="modal-container">
-        {" "}
-        {/* ✅ Cambio para un estilo de tarjeta */}
         {loadingPokemonDetails ? (
           <LoadingSpinner />
         ) : pokemonDetails ? (
@@ -28,9 +36,12 @@ export const PokemonModal = ({ isOpen, onClose }) => {
 
             <div className="modal-body">
               <img
-                src={pokemonDetails.sprites?.front_default}
+                src={
+                  pokemonDetails.sprites?.other?.official_artwork
+                    ?.front_default || pokemonDetails.sprites?.front_default
+                }
                 alt={pokemonDetails.name}
-                className="pokemon-modal-image"
+                style={modalImageStyle}
               />
               <div className="pokemon-modal-info">
                 <p>

@@ -1,9 +1,10 @@
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import "./PokemonCard.css";
 import { getPokemonDetails } from "../../store/thunks";
 
-export const PokemonCard = ({ pokemonData, pokemonImage, onClick }) => {
+const PokemonCard = ({ pokemonData, pokemonImage, onClick }) => {
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -35,3 +36,5 @@ PokemonCard.propTypes = {
   pokemonImage: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 };
+
+export default memo(PokemonCard);

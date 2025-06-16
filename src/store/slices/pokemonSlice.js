@@ -15,6 +15,9 @@ export const pokemonSlice = createSlice({
   initialState,
   reducers: {
     resetState: () => initialState,
+    clearPokemonDetails: (state) => {
+      state.pokemonDetails = {};
+    },
   },
   extraReducers: (builder) => {
     // * Fetch Pokemons *//
@@ -54,5 +57,5 @@ export const pokemonSlice = createSlice({
   },
 });
 
-export const { resetState } = pokemonSlice.actions;
+export const { resetState, clearPokemonDetails } = pokemonSlice.actions;
 export default pokemonSlice.reducer;
