@@ -2,17 +2,17 @@
 
 ## Description
 
-Pokémon Toolkit is a simple and clean React application that allows users to browse Pokémon data using the PokéAPI. It demonstrates key frontend development practices including Redux Toolkit for state management, Axios for API requests, and component-based architecture with a responsive UI.
+Pokémon Toolkit is a **fast and optimized** React application that allows users to browse Pokémon data using the PokéAPI. It showcases best practices in frontend development, including Redux Toolkit for **efficient state management**, `useMemo` and `useCallback` for **performance optimization**, and a **responsive UI with reusable components**.
 
-This project allows users to:
+### **Key Features**
+- **Optimized Pokémon browsing** with paginated data.
+- **Interactive Pokémon cards** displaying images and names.
+- **Improved modal performance**, ensuring smooth interactions.
+- **Global state management** with Redux Toolkit.
+- **Efficient API handling** using Axios.
+- **Custom hooks** for clean and reusable data-fetching logic.
 
-- Load and browse Pokémon in paginated format.
-- See each Pokémon displayed in a card with an image and name.
-- Handle loading and error states with visual feedback.
-- Manage global state cleanly using Redux Toolkit.
-- Use a custom hook to encapsulate data-fetching logic.
-
-This project is part of my portfolio to demonstrate how to build a user-friendly, maintainable app using modern React tools.
+This project is part of my portfolio to **demonstrate scalable, maintainable frontend development** using modern React tools.
 
 ## Technologies Used
 
@@ -20,9 +20,11 @@ This project is part of my portfolio to demonstrate how to build a user-friendly
 - **Vite:** Fast build tool and development server.
 - **Redux Toolkit:** Simplified global state management.
 - **React Redux:** Official React bindings for Redux.
-- **Axios:** HTTP client to fetch data from APIs.
+- **Axios:** HTTP client for API requests.
 - **PropTypes:** Runtime props validation for components.
 - **CSS Modules:** Component-scoped styling.
+- **React.memo:** Prevents unnecessary re-renders in list components.
+- **useMemo & useCallback:** Optimizes function and list rendering for better performance.
 
 ## Getting Started
 
@@ -35,7 +37,6 @@ Follow these steps to run the project locally:
    ```bash
    git clone https://github.com/maitepv87/poke-toolkit.git
    cd poke-toolkit
-   ```
 
 2. Install dependencie:
 
