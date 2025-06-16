@@ -7,6 +7,7 @@ export const getPokemonDetails = createAsyncThunk(
     try {
       return await fetchPokemonDetails(name);
     } catch (error) {
+      console.error(`Error fetching details for ${name}:`, error);
       return rejectWithValue(error.message);
     }
   }

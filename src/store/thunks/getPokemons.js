@@ -7,6 +7,7 @@ export const getPokemons = createAsyncThunk(
     try {
       return await fetchPokemons(page);
     } catch (error) {
+      console.error(`Error fetching Pokemons:`, error);
       return rejectWithValue(error.message);
     }
   }

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
-import { getPokemonDetails } from "../../store/thunks";
 import "./PokemonCard.css";
+import { getPokemonDetails } from "../../store/thunks";
 
 export const PokemonCard = ({ pokemonData, pokemonImage, onClick }) => {
   const dispatch = useDispatch();

@@ -1,17 +1,31 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   LoadingSpinner,
   ErrorMessage,
   PokemonCard,
   NextButton,
+  PokemonModal,
 } from "../components";
-
 import { usePokemonData } from "../hooks";
+import { getPokemonDetails } from "../store/thunks";
+import { resetState } from "../store/slices";
 
 export const HomePage = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
   const { loadingPokemons, pokemons, errorMessage, loadNext } =
     usePokemonData();
-  const [selectedPokemon, setSelectedPokemon] = useState(null);
+
+  const handlePokemonClick = (name) => {
+    dispatch(getPokemonDetails(name));
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    // dispatch(resetState());
+  };
 
   return (
     <div className="app-container">
@@ -34,12 +48,14 @@ export const HomePage = () => {
             key={pokemon.name}
             pokemonData={pokemon}
             pokemonImage={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
-            onClick={(name) => setSelectedPokemon(name)}
+            onClick={() => handlePokemonClick(pokemon.name)}
           />
         ))}
       </div>
 
       <NextButton isLoading={loadingPokemons} onClick={loadNext} />
+
+      <PokemonModal isOpen={isModalOpen} onClose={handleCloseModal} />
     </div>
   );
 };
