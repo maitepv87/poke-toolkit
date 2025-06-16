@@ -5,7 +5,7 @@ import { resetState } from "../store/slices/pokemonSlice";
 
 export const usePokemonData = () => {
   const dispatch = useDispatch();
-  const { isLoading, pokemons, page, error } = useSelector(
+  const { loadingPokemons, pokemons, currentPage, errorMessage } = useSelector(
     (state) => state.pokemon
   );
 
@@ -14,7 +14,7 @@ export const usePokemonData = () => {
     return () => dispatch(resetState());
   }, [dispatch]);
 
-  const loadNext = () => dispatch(getPokemons(page));
+  const loadNext = () => dispatch(getPokemons(currentPage));
 
-  return { isLoading, pokemons, error, loadNext };
+  return { loadingPokemons, pokemons, errorMessage, loadNext };
 };

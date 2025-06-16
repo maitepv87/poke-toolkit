@@ -1,39 +1,58 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getPokemons, getPokemonDetails } from "../thunks";
 
 const initialState = {
   pokemons: [],
-  page: 0,
-  isLoading: false,
-  error: null,
+  pokemonDetails: {},
+  currentPage: 0,
+  loadingPokemons: false,
+  loadingPokemonDetails: false,
+  errorMessage: null,
 };
 
-// Redux slice for managing Pokémon state
 export const pokemonSlice = createSlice({
   name: "pokemon",
   initialState,
   reducers: {
-    setLoading: (state) => {
-      state.isLoading = true;
-      state.error = null;
-    },
-    setError: (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload;
-    },
-    setPokemons: (state, action) => {
-      state.isLoading = false;
-      state.error = null;
-      state.page = action.payload.page;
+    resetState: () => initialState,
+  },
+  extraReducers: (builder) => {
+    // * Fetch Pokemons *//
+    builder.addCase(getPokemons.pending, (state) => {
+      state.loadingPokemons = true;
+      state.errorMessage = null;
+    });
+
+    builder.addCase(getPokemons.fulfilled, (state, action) => {
+      state.loadingPokemons = false;
+      state.errorMessage = null;
       state.pokemons = action.payload.pokemons;
-    },
-    resetState() {
-      return { ...initialState };
-    },
+      state.currentPage = action.payload.page;
+    });
+
+    builder.addCase(getPokemons.rejected, (state, action) => {
+      state.loadingPokemons = false;
+      state.errorMessage = action.payload;
+    });
+
+    // * Fetch Pokemon Details *//
+    builder.addCase(getPokemonDetails.pending, (state) => {
+      state.loadingPokemonDetails = true;
+      state.errorMessage = null;
+    });
+
+    builder.addCase(getPokemonDetails.fulfilled, (state, action) => {
+      state.loadingPokemonDetails = false;
+      state.errorMessage = null;
+      state.pokemonDetails = action.payload;
+    });
+
+    builder.addCase(getPokemonDetails.rejected, (state, action) => {
+      state.loadingPokemonDetails = false;
+      state.errorMessage = action.payload;
+    });
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { setLoading, setError, setPokemons, resetState } =
-  pokemonSlice.actions;
-
+export const { resetState } = pokemonSlice.actions;
 export default pokemonSlice.reducer;

@@ -7,22 +7,23 @@ import {
 import { usePokemonData } from "../hooks";
 
 export const HomePage = () => {
-  const { isLoading, pokemons, error, loadNext } = usePokemonData();
+  const { loadingPokemons, pokemons, errorMessage, loadNext } =
+    usePokemonData();
 
   return (
     <div className="app-container">
       <h1>Pokemon App</h1>
       <hr />
 
-      <ErrorMessage message={error} />
+      <ErrorMessage message={errorMessage} />
 
-      {isLoading ? (
+      {loadingPokemons ? (
         <LoadingSpinner />
       ) : (
         <span className="loading-status">Ready to go!</span>
       )}
 
-      {!isLoading && pokemons.length === 0 && <p>No Pokémon found.</p>}
+      {!loadingPokemons && pokemons.length === 0 && <p>No Pokémon found.</p>}
 
       <div className="pokemon-list">
         {pokemons.map((pokemon) => (
@@ -34,10 +35,7 @@ export const HomePage = () => {
         ))}
       </div>
 
-      <NextButton
-        isLoading={isLoading}
-        onClick={loadNext}
-      />
+      <NextButton isLoading={loadingPokemons} onClick={loadNext} />
     </div>
   );
 };
