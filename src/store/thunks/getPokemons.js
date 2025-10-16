@@ -1,5 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { fetchPokemons } from "../../api/services/pokemonService";
+import { fetchPokemons } from "../../services/pokemonService";
 
 export const getPokemons = createAsyncThunk(
   "pokemon/getPokemons",

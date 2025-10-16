@@ -5,16 +5,21 @@ import { resetState } from "../store/slices/pokemonSlice";
 
 export const usePokemonData = () => {
   const dispatch = useDispatch();
-  const { loadingPokemons, pokemons, currentPage, errorMessage } = useSelector(
+  const { pokemons, currentPage, loadingPokemons, errorMessage } = useSelector(
     (state) => state.pokemon
   );
 
   useEffect(() => {
     dispatch(getPokemons());
+
     return () => dispatch(resetState());
   }, [dispatch]);
 
-  const loadNext = () => dispatch(getPokemons(currentPage));
+  const loadNext = () => {
+    if (typeof currentPage === "number") {
+      dispatch(getPokemons(currentPage));
+    }
+  };
 
-  return { loadingPokemons, pokemons, errorMessage, loadNext };
+  return { pokemons, loadingPokemons, errorMessage, loadNext };
 };

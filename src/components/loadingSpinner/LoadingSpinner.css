@@ -1,5 +1,6 @@
-.loading-status {
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    color: #666;
+.loading-text {
+    font-size: 1em;
+    color: #555;
+    text-align: center;
+    margin: 20px 0;
 }
