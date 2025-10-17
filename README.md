@@ -1,6 +1,7 @@
 # Poke Toolkit
 
-### A modular, emotionally intelligent React app powered by Redux Toolkit
+A modular, emotionally intelligent React app powered by Redux Toolkit  
+_Built for onboarding clarity, UI empathy, and scalable architecture._
 
 ## Description
 
@@ -10,12 +11,13 @@ This project is part of my portfolio to showcase **onboarding-friendly architect
 
 ### **Key Features**
 
-- **Optimized Pokémon browsing** with paginated data.
-- **Interactive Pokémon cards** displaying images and names.
-- **Improved modal performance**, ensuring smooth interactions.
-- **Global state management** with Redux Toolkit.
-- **Efficient API handling** using Axios.
-- **Custom hooks** for clean and reusable data-fetching logic.
+- **Paginated Pokémon browsing** with smooth transitions.
+- **Interactive Pokémon cards** with official artwork and names.
+- **Global state management** using Redux Toolkit slices and thunks.
+- **Efficient API handling** with Axios and error fallback.
+- **Custom hooks** for clean, reusable data-fetching logic.
+- **Accessible UI feedback** with loading spinners and error messages.
+- **Modular components** designed for onboarding and editorial clarity.
 
 This project is part of my portfolio to **demonstrate scalable, maintainable frontend development** using modern React tools.
 
@@ -45,7 +47,7 @@ Follow these steps to run the project locally:
 
    ```
 
-2. Install dependencie:
+2. Install dependencies:
 
    ```bash
    npm install
@@ -58,3 +60,5 @@ Follow these steps to run the project locally:
    ```
 
 Then open http://localhost:3000 in your browser.
+
+This project is designed to be teachable, modular, and emotionally clear — perfect for onboarding and portfolio review.
