@@ -23,6 +23,15 @@ export const PokemonDetailPage = () => {
     pokemonDetails?.sprites?.other?.["official-artwork"]?.front_default ||
     pokemonDetails?.sprites?.front_default;
 
+  const statLabels = {
+    hp: "HP",
+    attack: "Attack",
+    defense: "Defense",
+    "special-attack": "Sp. Attack",
+    "special-defense": "Sp. Defense",
+    speed: "Speed",
+  };
+
   return (
     <div className="pokemon-detail-page">
       <section className="hero-section">
@@ -61,24 +70,29 @@ export const PokemonDetailPage = () => {
         </div>
       </section>
 
-      <section className="stats-section">
-        <h2>Base Stats</h2>
-        <div className="stats-list">
-          {Array.isArray(pokemonDetails.stats) &&
-            pokemonDetails.stats.map((stat) => (
-              <div key={stat.stat.name} className="stat-row">
-                <span>{stat.stat.name}</span>
-                <div className="stat-bar">
-                  <div
-                    className="stat-fill"
-                    style={{ width: `${stat.base_stat}%` }}
-                  />
+      {Array.isArray(pokemonDetails.stats) &&
+        pokemonDetails.stats.length > 0 && (
+          <section className="stats-section">
+            <h2>Base Stats</h2>
+            <div className="stats-list">
+              {pokemonDetails.stats.map((stat) => (
+                <div key={stat.stat.name} className="stat-row">
+                  <span className="stat-name">
+                    {statLabels[stat.stat.name] || stat.stat.name}
+                  </span>
+                  <div className="stat-bar">
+                    <div
+                      className="stat-fill"
+                      style={{ width: `${stat.base_stat}%` }}
+                    >
+                      <span className="stat-value">{stat.base_stat}</span>
+                    </div>
+                  </div>
                 </div>
-                <span>{stat.base_stat}</span>
-              </div>
-            ))}
-        </div>
-      </section>
+              ))}
+            </div>
+          </section>
+        )}
     </div>
   );
 };

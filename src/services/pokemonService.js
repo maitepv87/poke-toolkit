@@ -40,6 +40,7 @@ export const fetchPokemonByName = async (name) => {
     const response = await axios.get(
       `https://pokeapi.co/api/v2/pokemon/${name}`
     );
+
     return response.data;
   } catch (error) {
     throw new Error(handleApiError(error));
