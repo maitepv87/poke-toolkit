@@ -41,7 +41,6 @@ export const fetchPokemonByName = async (name) => {
       `https://pokeapi.co/api/v2/pokemon/${name}`
     );
     return response.data;
-    
   } catch (error) {
     throw new Error(handleApiError(error));
   }
