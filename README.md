@@ -3,10 +3,6 @@
 A modular, emotionally intelligent React app powered by Redux Toolkit  
 _Built for onboarding clarity, UI empathy, and scalable architecture._
 
----
-
-## Preview
-
 ![App Screenshot](./assets/Screenshot_Pokemon.png)
 
 ---
