@@ -4,6 +4,11 @@ import { useDispatch } from "react-redux";
 import "./PokemonCard.css";
 import { getPokemonDetails } from "../../store/thunks";
 
+/**
+ * Displays a single Pokémon card with image and name.
+ * Triggers detail fetch and communicates interaction with visual clarity and accessibility.
+ */
+
 const PokemonCard = ({ pokemonData, pokemonImage, onClick }) => {
   const dispatch = useDispatch();
 

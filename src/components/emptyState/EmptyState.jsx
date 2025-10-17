@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import "./EmptyState.css";
 
 /**
@@ -17,4 +18,11 @@ export const EmptyState = ({ title, message, actionLabel, onAction }) => {
       )}
     </div>
   );
+};
+
+EmptyState.propTypes = {
+  title: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  actionLabel: PropTypes.string,
+  onAction: PropTypes.func,
 };
