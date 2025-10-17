@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { usePokemonData } from "../hooks";
+import { usePokemonData } from "../../hooks";
 import {
   LoadingSpinner,
   ErrorMessage,
   PokemonList,
   NextButton,
-} from "../components";
+} from "../../components";
+import "./HomePage.css";
 
 export const HomePage = () => {
   const navigate = useNavigate();
@@ -16,18 +17,13 @@ export const HomePage = () => {
     navigate(`/pokemon/${name}`);
   };
 
+  if (loadingPokemons) return <LoadingSpinner />;
+  if (errorMessage) return <ErrorMessage message={errorMessage} />;
+
   return (
     <main className="app-container">
       <h1>Pokemon App</h1>
       <hr />
-
-      <ErrorMessage message={errorMessage} />
-
-      {loadingPokemons ? (
-        <LoadingSpinner />
-      ) : (
-        <span className="loading-status">Ready to go!</span>
-      )}
 
       {!loadingPokemons && pokemons.length === 0 && <p>No Pokémon found.</p>}
 

@@ -25,52 +25,60 @@ export const PokemonDetailPage = () => {
 
   return (
     <div className="pokemon-detail-page">
-      <div className="detail-header">
-        <img src={image} alt={pokemonDetails.name} className="detail-image" />
-        <h1 className="detail-title">
-          #{pokemonDetails.id} {pokemonDetails.name}
-        </h1>
-        <div className="type-badges">
-          {Array.isArray(pokemonDetails.types) &&
-            pokemonDetails.types.map((t) => (
-              <span key={t.type.name} className={`type-badge ${t.type.name}`}>
-                {t.type.name}
-              </span>
+      <section className="hero-section">
+        <img src={image} alt={pokemonDetails.name} className="hero-image" />
+        <div className="hero-text">
+          <h1>
+            #{pokemonDetails.id} {pokemonDetails.name}
+          </h1>
+          <div className="type-badges">
+            {Array.isArray(pokemonDetails.types) &&
+              pokemonDetails.types.map((t) => (
+                <span key={t.type.name} className={`type-badge ${t.type.name}`}>
+                  {t.type.name}
+                </span>
+              ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="info-grid">
+        <div className="info-block">
+          <h2>Height</h2>
+          <p>{pokemonDetails.height / 10} m</p>
+        </div>
+        <div className="info-block">
+          <h2>Weight</h2>
+          <p>{pokemonDetails.weight / 10} kg</p>
+        </div>
+        <div className="info-block">
+          <h2>Abilities</h2>
+          <p>
+            {Array.isArray(pokemonDetails.abilities)
+              ? pokemonDetails.abilities.map((a) => a.ability.name).join(", ")
+              : "Unknown"}
+          </p>
+        </div>
+      </section>
+
+      <section className="stats-section">
+        <h2>Base Stats</h2>
+        <div className="stats-list">
+          {Array.isArray(pokemonDetails.stats) &&
+            pokemonDetails.stats.map((stat) => (
+              <div key={stat.stat.name} className="stat-row">
+                <span>{stat.stat.name}</span>
+                <div className="stat-bar">
+                  <div
+                    className="stat-fill"
+                    style={{ width: `${stat.base_stat}%` }}
+                  />
+                </div>
+                <span>{stat.base_stat}</span>
+              </div>
             ))}
         </div>
-      </div>
-
-      <div className="detail-info">
-        <p>
-          <strong>Height:</strong> {pokemonDetails.height / 10} m
-        </p>
-        <p>
-          <strong>Weight:</strong> {pokemonDetails.weight / 10} kg
-        </p>
-        <p>
-          <strong>Abilities:</strong>
-          {Array.isArray(pokemonDetails.abilities)
-            ? pokemonDetails.abilities.map((a) => a.ability.name).join(", ")
-            : "Unknown"}
-        </p>
-      </div>
-
-      <div className="detail-stats">
-        <h2>Base Stats</h2>
-        {Array.isArray(pokemonDetails.stats) &&
-          pokemonDetails.stats.map((stat) => (
-            <div key={stat.stat.name} className="stat-row">
-              <span>{stat.stat.name}</span>
-              <div className="stat-bar">
-                <div
-                  className="stat-fill"
-                  style={{ width: `${stat.base_stat}%` }}
-                />
-              </div>
-              <span>{stat.base_stat}</span>
-            </div>
-          ))}
-      </div>
+      </section>
     </div>
   );
 };
