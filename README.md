@@ -1,10 +1,15 @@
 # Poke Toolkit
 
+### A modular, emotionally intelligent React app powered by Redux Toolkit
+
 ## Description
 
-Pokémon Toolkit is a **fast and optimized** React application that allows users to browse Pokémon data using the PokéAPI. It showcases best practices in frontend development, including Redux Toolkit for **efficient state management**, `useMemo` and `useCallback` for **performance optimization**, and a **responsive UI with reusable components**.
+Poke Toolkit is a **modular and emotionally intelligent** React application that lets users browse Pokémon data via the PokéAPI. It demonstrates best practices in frontend development, including Redux Toolkit for **scalable state management**, performance optimization with `useMemo` and `useCallback`, and a **responsive UI built with reusable, teachable components**.
+
+This project is part of my portfolio to showcase **onboarding-friendly architecture**, **editorial clarity**, and **emotionally aware UI feedback** using modern React tools.
 
 ### **Key Features**
+
 - **Optimized Pokémon browsing** with paginated data.
 - **Interactive Pokémon cards** displaying images and names.
 - **Improved modal performance**, ensuring smooth interactions.
@@ -38,19 +43,15 @@ Follow these steps to run the project locally:
    git clone https://github.com/maitepv87/poke-toolkit.git
    cd poke-toolkit
 
+   ```
+
 2. Install dependencie:
 
    ```bash
    npm install
    ```
 
-3. Set up environment variables in a .env file:
-
-   ```ini
-   VITE_API_URL=https://pokeapi.co/api/v2
-   ```
-
-4. Start the development server:
+3. Start the development server:
 
    ```bash
    npm run dev

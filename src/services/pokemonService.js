@@ -22,8 +22,6 @@ export const fetchPokemons = async (page = 0) => {
       `https://pokeapi.co/api/v2/pokemon?limit=12&offset=${page * 12}`
     );
 
-    console.log(response.data.results);
-
     return { pokemons: response.data.results, page: page + 1 };
   } catch (error) {
     throw new Error(handleApiError(error));

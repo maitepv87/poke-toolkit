@@ -1,0 +1,30 @@
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9fafc;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    color: #444;
+}
+
+.empty-title {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.empty-message {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.empty-action {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}

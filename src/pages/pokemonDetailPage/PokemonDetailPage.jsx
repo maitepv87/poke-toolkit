@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemonDetails } from "../../store/thunks/getPokemonDetails";
-import { LoadingSpinner, ErrorMessage } from "../../components";
+import { LoadingSpinner, ErrorMessage, EmptyState } from "../../components";
 import "./PokemonDetailPage.css";
 
 export const PokemonDetailPage = () => {
@@ -18,6 +18,20 @@ export const PokemonDetailPage = () => {
 
   if (loadingPokemonDetails) return <LoadingSpinner />;
   if (errorMessage) return <ErrorMessage message={errorMessage} />;
+
+  const shouldShowEmptyState =
+    !loadingPokemonDetails && !errorMessage && !pokemonDetails?.name;
+
+  if (shouldShowEmptyState) {
+    return (
+      <EmptyState
+        title="No Pokémon data available"
+        message="We couldn’t load this Pokémon’s details. Try again later or choose another one."
+        actionLabel="Go back"
+        onAction={() => window.history.back()}
+      />
+    );
+  }
 
   const image =
     pokemonDetails?.sprites?.other?.["official-artwork"]?.front_default ||
