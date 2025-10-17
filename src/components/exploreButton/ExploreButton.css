@@ -1,0 +1,22 @@
+.explore-button {
+    padding: 14px 28px;
+    background-color: #ffcb05;
+    color: #2d72fc;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    margin-top: 30px;
+}
+
+.explore-button:hover {
+    background-color: #f5b700;
+    transform: scale(1.03);
+}
+
+.explore-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

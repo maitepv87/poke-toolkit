@@ -2,15 +2,23 @@ import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPokemonDetails } from "../../store/thunks/getPokemonDetails";
-import { LoadingSpinner, ErrorMessage, EmptyState } from "../../components";
+import {
+  LoadingSpinner,
+  ErrorMessage,
+  EmptyState,
+  ExploreButton,
+} from "../../components";
 import "./PokemonDetailPage.css";
 
 export const PokemonDetailPage = () => {
   const { name } = useParams();
   const dispatch = useDispatch();
-  const { pokemonDetails, loadingPokemonDetails, errorMessage } = useSelector(
-    (state) => state.pokemon
-  );
+  const {
+    pokemonDetails,
+    loadingPokemonDetails,
+    errorMessage,
+    loadingPokemons,
+  } = useSelector((state) => state.pokemon);
 
   useEffect(() => {
     dispatch(getPokemonDetails(name));
@@ -107,6 +115,10 @@ export const PokemonDetailPage = () => {
             </div>
           </section>
         )}
+
+      <section className="explore-more">
+        <ExploreButton isLoading={loadingPokemons} />
+      </section>
     </div>
   );
 };

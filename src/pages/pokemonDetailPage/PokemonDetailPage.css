@@ -204,3 +204,11 @@ body {
     font-size: 0.9em;
     color: #222;
 }
+
+.explore-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    animation: fadeIn 0.4s ease-in;
+}
