@@ -7,6 +7,13 @@ _Built for onboarding clarity, UI empathy, and scalable architecture._
 
 ---
 
+## Live Demo
+
+Explore the app live on Vercel:  
+🔗 [poke-toolkit.vercel.app](https://poke-toolkit.vercel.app/)
+
+---
+
 ## Description
 
 Poke Toolkit is a **modular and emotionally intelligent** React application that lets users browse Pokémon data via the PokéAPI. It demonstrates best practices in frontend development, including Redux Toolkit for **scalable state management**, performance optimization with `useMemo` and `useCallback`, and a **responsive UI built with reusable, teachable components**.
