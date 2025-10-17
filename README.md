@@ -3,11 +3,21 @@
 A modular, emotionally intelligent React app powered by Redux Toolkit  
 _Built for onboarding clarity, UI empathy, and scalable architecture._
 
+---
+
+## Preview
+
+![App Screenshot](./assets/Screenshot_Pokemon.png)
+
+---
+
 ## Description
 
 Poke Toolkit is a **modular and emotionally intelligent** React application that lets users browse Pokémon data via the PokéAPI. It demonstrates best practices in frontend development, including Redux Toolkit for **scalable state management**, performance optimization with `useMemo` and `useCallback`, and a **responsive UI built with reusable, teachable components**.
 
 This project is part of my portfolio to showcase **onboarding-friendly architecture**, **editorial clarity**, and **emotionally aware UI feedback** using modern React tools.
+
+---
 
 ### **Key Features**
 
@@ -21,6 +31,8 @@ This project is part of my portfolio to showcase **onboarding-friendly architect
 
 This project is part of my portfolio to **demonstrate scalable, maintainable frontend development** using modern React tools.
 
+---
+
 ## Technologies Used
 
 - **React:** Component-based user interface.
@@ -32,6 +44,8 @@ This project is part of my portfolio to **demonstrate scalable, maintainable fro
 - **CSS Modules:** Component-scoped styling.
 - **React.memo:** Prevents unnecessary re-renders in list components.
 - **useMemo & useCallback:** Optimizes function and list rendering for better performance.
+
+---
 
 ## Getting Started
 
