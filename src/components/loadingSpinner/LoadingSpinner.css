@@ -1,6 +1,17 @@
-.loading-text {
-    font-size: 1em;
-    color: #555;
-    text-align: center;
-    margin: 20px 0;
+.loading-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-global {
+    min-height: 50vh;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.loading-inline {
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: #64748b;
 }
